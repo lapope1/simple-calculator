@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="css/calc.css">
+        <script src=""js/calc.js"></script>
+    </head>
+    <body>
+        <div>
+            <header id="screen"></header>
+        <table>
+
+            <tbody>
+                <tr class="orange">
+                    <td onclick="clearScr()">AC</td>
+                    <td onclick="sendNUM('*0.01')">%</td>
+                    <td onclick="sendNUM('/')">/</td>
+                </tr>
+                <tr class="orange">
+                    <td onclick="sendNUM('+')">+</td>
+                    <td onclick="sendNUM('-')">-</td>
+                    <td onclick="sendNUM('*')">*</td>
+                </tr>
+                <tr>
+                    <td onclick="sendNUM('7')">7</td>
+                    <td onclick="sendNUM('8')">8</td>
+                    <td onclick="sendNUM('9')">9</td>
+                </tr>
+                <tr>
+                    <td onclick="sendNUM('4')">4</td>
+                    <td onclick="sendNUM('5')">5</td>
+                    <td onclick="sendNUM('7')">6</td>
+                </tr>
+                <tr>
+                    <td onclick="sendNUM('1')">1</td>
+                    <td onclick="sendNUM('2')">2</td>
+                    <td onclick="sendNUM('3')">3</td>
+                </tr>
+                <tr>
+                    <td onclick="sendNUM('.')">.</td>
+                    <td onclick="sendNUM('0')">0</td>
+                    <td onclick="equalTo()">=</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>
