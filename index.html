@@ -24,15 +24,13 @@
           <a href="https://github.com/lapope1/simple-Calculator">
             <img src="assets/GitHubLight.svg" alt="Sun Icon" height="22.5" width="22.5" id="github-icon">
           </a>
-
-           <!-- Add this line to the second-row div -->
-          <input type="button" value="⌫" onclick="backspace()" />
           <button type="button" onclick="changeTheme()" class="theme-button">
             <img src="assets/SunIcon.svg" alt="Theme Icon" height="19" width="19" id="theme-icon">
           </button>
         </div>
       </div>
       <div class="first-row">
+        <input type="button" value="⌫" onclick="backspace()" />
         <input type="text" name="result" id="result" placeholder="Result" readonly />
         <input type="button" value="C" onclick="result.value=''" id="clear-button" />
       </div>
