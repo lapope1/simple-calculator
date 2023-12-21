@@ -25,7 +25,7 @@ function clearScreen() {
 }
 
 // Function to handle the backspace button
-function backspace() {
+function deleteCharacter() {
   var currentInput = document.getElementById('result').value;
   document.getElementById('result').value = currentInput.slice(0, -1);
 }
