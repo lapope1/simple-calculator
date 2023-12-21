@@ -1,108 +1,51 @@
-const lightTheme = "styles/light.css";
-const darkTheme = "styles/dark.css";
-const sunIcon = "assets/SunIcon.svg";
-const moonIcon = "assets/MoonIcon.svg";
-const themeIcon = document.getElementById("theme-icon");
-const res = document.getElementById("result");
-const toast = document.getElementById("toast");
+// JavaScript for Calculator
 
-function calculate(value) {
-  const calculatedValue = eval(value || null);
-  if (isNaN(calculatedValue)) {
-    res.value = "Can't divide 0 with 0";
-    setTimeout(() => {
-      res.value = "";
-    }, 1300);
-  } else {
-    res.value = calculatedValue;
+// Function to update the calculator screen
+function liveScreen(value) {
+  document.getElementById('result').value += value;
+}
+
+// Function to perform the calculation
+function calculate(expression) {
+  try {
+    // Use eval to calculate the result of the expression
+    var result = eval(expression);
+
+    // Display the result on the calculator screen
+    document.getElementById('result').value = result;
+  } catch (error) {
+    // Handle any errors that may occur during the calculation
+    document.getElementById('result').value = 'Error';
   }
 }
 
-// Swaps the stylesheet to achieve dark mode.
+// Function to clear the calculator screen
+function clearScreen() {
+  document.getElementById('result').value = '';
+}
+
+// Function to handle the backspace button
+function backspace() {
+  var currentInput = document.getElementById('result').value;
+  document.getElementById('result').value = currentInput.slice(0, -1);
+}
+
+// Function to change the theme (dark/light mode)
 function changeTheme() {
-  const theme = document.getElementById("theme");
-  setTimeout(() => {
-    toast.innerHTML = "Calculator";
-  }, 1500);
-  if (theme.getAttribute("href") === lightTheme) {
-    theme.setAttribute("href", darkTheme);
-    themeIcon.setAttribute("src", sunIcon);
-    toast.innerHTML = "Dark Mode 🌙";
-  } else {
-    theme.setAttribute("href", lightTheme);
-    themeIcon.setAttribute("src", moonIcon);
-    toast.innerHTML = "Light Mode ☀️";
-  }
+  var themeLink = document.getElementById('theme');
+  var currentTheme = themeLink.getAttribute('href');
+  var newTheme = currentTheme === 'styles/dark.css' ? 'styles/light.css' : 'styles/dark.css';
+
+  // Update the theme by changing the stylesheet link
+  themeLink.setAttribute('href', newTheme);
+
+  // Display a toast notification about the theme change
+  var toastElement = document.getElementById('toast');
+  toastElement.textContent = 'Theme changed!';
+  setTimeout(function () {
+    toastElement.textContent = 'Calculator';
+  }, 2000);
 }
 
-// Displays entered value on screen.
-function liveScreen(enteredValue) {
-  if (!res.value) {
-    res.value = "";
-  }
-  res.value += enteredValue;
-}
-
-//adding event handler on the document to handle keyboard inputs
-document.addEventListener("keydown", keyboardInputHandler);
-
-//function to handle keyboard inputs
-function keyboardInputHandler(e) {
-  // to fix the default behavior of browser,
-  // enter and backspace were causing undesired behavior when some key was already in focus.
-  e.preventDefault();
-  //grabbing the liveScreen
-
-  //numbers
-  if (e.key === "0") {
-    res.value += "0";
-  } else if (e.key === "1") {
-    res.value += "1";
-  } else if (e.key === "2") {
-    res.value += "2";
-  } else if (e.key === "3") {
-    res.value += "3";
-  } else if (e.key === "4") {
-    res.value += "4";
-  } else if (e.key === "5") {
-    res.value += "5";
-  } else if (e.key === "6") {
-    res.value += "6";
-  } else if (e.key === "7") {
-    res.value += "7";
-  } else if (e.key === "7") {
-    res.value += "7";
-  } else if (e.key === "8") {
-    res.value += "8";
-  } else if (e.key === "9") {
-    res.value += "9";
-  }
-
-  //operators
-  if (e.key === "+") {
-    res.value += "+";
-  } else if (e.key === "-") {
-    res.value += "-";
-  } else if (e.key === "*") {
-    res.value += "*";
-  } else if (e.key === "/") {
-    res.value += "/";
-  }
-
-  //decimal key
-  if (e.key === ".") {
-    res.value += ".";
-  }
-
-  //press enter to see result
-  if (e.key === "Enter") {
-    calculate(result.value);
-  }
-
- //backspace for removing the last input
-  if (e.key === "Backspace") {
-    const resultInput = res.value;
-    //remove the last element in the string
-    res.value = resultInput.substring(0, res.value.length - 1);
-  }
-}
+// Event listener for the theme button
+document.querySelector('.theme-button').addEventListener('click', changeTheme);
