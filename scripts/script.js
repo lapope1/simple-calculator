@@ -99,7 +99,6 @@ function keyboardInputHandler(e) {
     calculate(result.value);
   }
 
- // Add this function to your existing JavaScript code
 function backspace() {
   var currentResult = document.getElementById('result').value;
   document.getElementById('result').value = currentResult.slice(0, -1);
