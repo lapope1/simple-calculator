@@ -99,10 +99,9 @@ function keyboardInputHandler(e) {
     calculate(result.value);
   }
 
-  //backspace for removing the last input
-  if (e.key === "Backspace") {
-    const resultInput = res.value;
-    //remove the last element in the string
-    res.value = resultInput.substring(0, res.value.length - 1);
+ // Add this function to your existing JavaScript code
+function backspace() {
+  var currentResult = document.getElementById('result').value;
+  document.getElementById('result').value = currentResult.slice(0, -1);
   }
 }
