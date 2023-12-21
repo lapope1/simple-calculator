@@ -32,7 +32,7 @@
       <div class="first-row">
         <input type="text" name="result" id="result" placeholder="Result" readonly />
          <input type="button" value="⌫" onclick="backspace()" />
-        <input type="button" value="C" onclick="result.value=''" id="clear-button" />
+        <td><input class="button" type="button" value="DEL" onclick="calculator.display.value = calculator.display.value.substr(0,calculator.display.value.length-1)"></td>
       </div>
       <div class="second-row">
         <input type="button" value="1" onclick="liveScreen(1)" />
