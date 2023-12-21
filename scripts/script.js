@@ -49,3 +49,4 @@ function changeTheme() {
 
 // Event listener for the theme button
 document.querySelector('.theme-button').addEventListener('click', changeTheme);
+
