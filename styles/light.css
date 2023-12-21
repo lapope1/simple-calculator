@@ -84,6 +84,11 @@ input[type="button"]:hover {
   background-color: rgb(255, 25, 25);
 }
 
+#delete-button {
+  color: #fff;
+  background-color: rgb(255, 25, 25);
+}
+
 a {
   text-decoration: none;
   color: #fff;
