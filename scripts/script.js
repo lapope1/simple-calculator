@@ -105,4 +105,8 @@ function keyboardInputHandler(e) {
     //remove the last element in the string
     res.value = resultInput.substring(0, res.value.length - 1);
   }
+  
+  delete() {
+  this.currentOperand = this.currentOperand.toString().slice(0, -1)
+  }
 }
